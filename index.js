@@ -3,12 +3,11 @@ let display = document.querySelector(".kallo");
 let laggaPa = document.getElementById("kalori");
 let form = document.getElementById("kalori-form");
 let selectList = document.createElement("select")
+selectList.id = "mySelect";
 let myParent = document.body;
 
-selectList.id = "mySelect";
-
 display.innerHTML = "Nuvarande kalorier = " + totalKalori;
-form.addEventListener("submit", raknaKalorier); 
+form.addEventListener("submit", raknaKalorier);
 
 function raknaKalorier(e) {
     e.preventDefault();

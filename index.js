@@ -2,6 +2,10 @@ let totalKalori = 0;
 let display = document.querySelector(".kallo");
 let laggaPa = document.getElementById("kalori");
 let form = document.getElementById("kalori-form");
+let selectList = document.createElement("select")
+let myParent = document.body;
+
+selectList.id = "mySelect";
 
 display.innerHTML = "Nuvarande kalorier = " + totalKalori;
 form.addEventListener("submit", raknaKalorier); 
@@ -24,13 +28,22 @@ fetch('./meals_with_calories.json')
     .then(response => response.json())
     .then(data => data.forEach(data => 
     {
-        console.log(data.Namn)
-        console.log(data.Kalorier)
+        let options = document.createElement("option")
+        options.value = data.Kalorier;
+        options.text = data.Namn + " (kcal: " + data.Kalorier + ")";
+        selectList.appendChild(options);
         
     }
     ))  .catch(error => console.log('Error:' , error));
 }
 displayMat();
 
+myParent.appendChild(selectList);
 
+selectList.addEventListener("change", function addaKallo() {
+    let kaloros = Number(selectList.value);
+    totalKalori += kaloros;
+
+    display.innerHTML = "Nuvarande kalorier = " + totalKalori;
+});
 

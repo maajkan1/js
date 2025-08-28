@@ -19,4 +19,18 @@ function raknaKalorier(e) {
     }
     laggaPa.value = "";
 }
+const displayMat = () => {
+fetch('./meals_with_calories.json')
+    .then(response => response.json())
+    .then(data => data.forEach(data => 
+    {
+        console.log(data.Namn)
+        console.log(data.Kalorier)
+        
+    }
+    ))  .catch(error => console.log('Error:' , error));
+}
+displayMat();
+
+
 

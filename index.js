@@ -57,4 +57,3 @@ function resetTotalKalori(e) {
 let rensaKaloriTillNoll = document.getElementById("rensa")
 
 rensaKaloriTillNoll.addEventListener("click", resetTotalKalori);
-

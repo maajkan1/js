@@ -41,7 +41,7 @@ selectListDiv.appendChild(selectList);
 
 selectList.addEventListener("change", function addKaloriViaSelectList() {
     let selectListValue = Number(selectList.value);
-    totalKalori += selectListValue;
+    kalori.value = selectListValue;
 
     display.innerHTML = "Nuvarande kalorier = " + totalKalori;
 });
